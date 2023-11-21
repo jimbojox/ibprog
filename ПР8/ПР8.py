@@ -1,11 +1,69 @@
+#Вариант 1.1
+
+N = 3
+
+A = [
+[1, 2, 3],
+[4, 5, 6],
+[7, 8, 9]]
+
+c = 0
+s = 0
+for i in range(N):
+	for j in range(i + 1, N):
+		if A[i][j] > 0:
+			s += A[i][j]
+			c += 1
+
+print("Число:",c)
+print("Сумма:",s)
+
+#Вариант 1.2
+
+N = 3
+M = 4
+
+A = [
+[12,11,9,10],
+[8, 7, 6, 5],
+[4, 3, 2, 1]]
+
+for i in range(N):
+	i_min = 0
+	v_min = A[i][0]
+	for j in range(M):
+		if A[i][j] < v_min:
+			i_min = j
+			v_min = A[i][j]
+	c = A[i][0]
+	A[i][0] = A[i][i_min]
+	A[i][i_min] = c
+
+for i in range(N):
+	i_max = 0
+	v_max = A[i][0]
+	for j in range(M):
+		if A[i][j] > v_max:
+			i_max = j
+			v_max = A[i][j]
+	c = A[i][M-1]
+	A[i][M-1] = A[i][i_max]
+	A[i][i_max] = c
+
+for i in range(N):
+	for j in range(M):
+		print("%2d " % A[i][j], end='')
+	print()
+
 # Вариант 3.1
+
 a = list()
 n = 3
 
 for i in range(n):
     b = list()
     for j in range(n):
-        b.append(5)
+        b.append(2)
     a.append(b)
 
 print(a)
@@ -30,34 +88,3 @@ if first == second:
 else:
     print('Матрица не является симметричной')
 
-# Задание 1.1
-import random
-pol =0
-s = 0
-N = int(input('Ввод'))
-A = [[random.randrange(10) for i on range(N)) for j in range(N)]
-for i in range(N):
-    for j in range( i + 1,N):
-        if A[i][j] <= 0:
-            continue
-        if A[i][j] > 0:
-            pol +=1
-            s ++ A[i][j]
-
-print('Сумма:',s)
-print('Число:',pol)
-
-# Задание 1.2
-N = int(input())
-M = int(input())
-B = [[random.randrange(10) for i on range(M)) for j in range(N)]
-for i , row in enumerate(B):
-    max = min = 0
-    for j, row in enumerate(row):
-        if elem > row[max]:
-            max = j
-        if elem < row[min]:
-            min = j
-    row[max], row[0] = row[0],row[max]
-    row[min], row[-1] = row[-1],row[min]
-print(B)
