@@ -10,7 +10,7 @@ from tkinter import scrolledtext
 import tkinter as tk
 from tkinter import messagebox, filedialog
 
-# Функция обработки нажатия кнопки
+
 def show_message():
     text = ""
     if var1.get():
@@ -21,7 +21,7 @@ def show_message():
         text += "Вы выбрали третий вариант.\n"
     messagebox.showinfo("Выбор", text)
 
-# Функция загрузки текста из файла
+
 def load_file():
     file_path = filedialog.askopenfilename(filetypes=(("Text files", "*.txt"), ("All files", "*.*")))
     if file_path:
@@ -30,11 +30,11 @@ def load_file():
         text_entry.delete("1.0", tk.END)
         text_entry.insert(tk.END, text)
 
-# Создание главного окна
+
 root = tk.Tk()
 root.title("Гусев Владимир Иванович")
 
-# Создание вкладок
+
 tab_control = tk.ttk.Notebook(root)
 tab1 = tk.Frame(tab_control)
 tab2 = tk.Frame(tab_control)
@@ -44,7 +44,7 @@ tab_control.add(tab2, text="Чекбоксы")
 tab_control.add(tab3, text="Работа с текстом")
 tab_control.pack(expand=1, fill="both")
 
-# Вкладка "Калькулятор"
+
 number1_label = tk.Label(tab1, text="Первое число:")
 number1_label.pack()
 number1_entry = tk.Entry(tab1)
@@ -86,7 +86,7 @@ def calculate():
 
 calculate_button = tk.Button(tab1, text="Вычислить", command=calculate)
 calculate_button.pack()
-# Вкладка "Чекбоксы"
+
 var1 = tk.IntVar()
 var2 = tk.IntVar()
 var3 = tk.IntVar()
@@ -117,7 +117,7 @@ show_message_button.pack()
 
 
 
-# Вкладка "Работа с текстом"
+
 text_entry = tk.Text(tab3)
 text_entry.pack()
 
@@ -125,5 +125,5 @@ load_file_button = tk.Button(tab3, text="Загрузить файл", command=l
 load_file_button.pack()
 
 
-# Запуск главного цикла
+
 root.mainloop()
